@@ -1,0 +1,2 @@
+SECRET_KEY=k)jcmr8dp6-fmr*s^hpqmax&_z*5n@9q!*!14%qff0s^67dold
+ALLOWED_HOSTS=.localhost, .herokuapp.com
