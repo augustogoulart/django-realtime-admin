@@ -4,5 +4,12 @@
   {{ block.super }}
   <script>
     console.log('Heey Theere!')
+    const ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+    const chatSocket = new WebSocket(
+                  ws_scheme
+                  + '://'
+                  + window.location.host
+                  + '/ws/list/'
+          );
   </script>
 {% endblock  %}
