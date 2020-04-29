@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 python-decouple = "*"
 channels = "*"
+ipdb = "*"
 
 [requires]
 python_version = "3.7"
