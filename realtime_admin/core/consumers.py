@@ -3,10 +3,10 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 
 class ChangeListConsumer(AsyncWebsocketConsumer):
-    async def connect(self):
-        self.room_name = 'admin'
-        self.room_group_name = f'chat_{self.room_name}'
+    room_name = 'admin'
+    room_group_name = f'chat_{room_name}'
 
+    async def connect(self):
         # Join room group
         await self.channel_layer.group_add(
             self.room_group_name,
