@@ -3,13 +3,13 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 
 class ChangeListConsumer(AsyncWebsocketConsumer):
-    room_name = 'admin'
-    room_group_name = f'chat_{room_name}'
+    stream_name = 'change_list'
+    stream_group_name = f'admin_{stream_name}'
 
     async def connect(self):
         # Join room group
         await self.channel_layer.group_add(
-            self.room_group_name,
+            self.stream_group_name,
             self.channel_name
         )
 
@@ -20,7 +20,7 @@ class ChangeListConsumer(AsyncWebsocketConsumer):
         Leave a room
         """
         await self.channel_layer.group_discard(
-            self.room_group_name, self.channel_name
+            self.stream_group_name, self.channel_name
         )
 
     async def receive(self, text_data):
@@ -31,7 +31,7 @@ class ChangeListConsumer(AsyncWebsocketConsumer):
         message = text_data_json['message']
 
         await self.channel_layer.group_send(
-            self.room_group_name,
+            self.stream_group_name,
             {
                 'type': 'admin_event',
                 'message': message
