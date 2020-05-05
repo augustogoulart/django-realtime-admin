@@ -28,20 +28,28 @@ class ChangeListConsumer(AsyncWebsocketConsumer):
         Receive message from WebSocket
         """
         text_data_json = json.loads(text_data)
-        message = text_data_json['message']
+        product = text_data_json['product']
+        client = text_data_json['client']
+        value = text_data_json['value']
 
         await self.channel_layer.group_send(
             self.stream_group_name,
             {
                 'type': 'admin_event',
-                'message': message
+                'product': product,
+                'client': client,
+                'value': value
             }
         )
 
     async def admin_event(self, event):
-        message = event['message']
+        product = event['product']
+        client = event['client']
+        value = event['value']
 
         # Send message to WebSocket
         await self.send(text_data=json.dumps({
-            'message': message
+            'product': product,
+            'client': client,
+            'value': value
         }))

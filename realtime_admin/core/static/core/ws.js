@@ -6,8 +6,7 @@ const ws = new WebSocket(
     + '/ws/list/'
 );
 ws.onmessage = function (e) {
-    const elem = document.querySelector('#result_list');
-    elem.style.display = 'none';
+    return
 };
 
 ws.onclose = function (e) {
