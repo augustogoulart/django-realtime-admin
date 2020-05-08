@@ -9,8 +9,8 @@ verify_ssl = true
 python-decouple = "*"
 channels = "*"
 ipdb = "*"
-django = "*"
 channels-redis = "*"
+django = "*"
 
 [requires]
 python_version = "3.7"

@@ -8,7 +8,6 @@
     );
     ws.onmessage = function (e) {
         const data = JSON.parse(e.data)
-
         let newRow =
             `<tr class="row2">
                <td class="action-checkbox">
