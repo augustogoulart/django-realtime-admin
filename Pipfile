@@ -11,6 +11,7 @@ channels = "*"
 ipdb = "*"
 channels-redis = "*"
 django = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.7"
